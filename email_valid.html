@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+</head>
+<style>
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+    
+</style>
+<body>
+    <div class="container">
+
+         <h2><center>Email Validation:</center></h2>
+         <form action="index.html" id="email-validation-form">
+             <center>
+                 <label for="email">Email:</label><br>
+                 <input type="email" id="email" name="email" required size="50"><br><br>
+                 <button type="button" onclick="validateEmail()">Validate</button>
+                 <p id="validation-result"></p>
+             </center>
+         </form>
+         <script>
+         function validateEmail() {
+             var email = document.getElementById("email").value;
+             fetch("/validate-email", {
+                 method: "POST",
+                 headers: {
+                     "Content-Type": "application/x-www-form-urlencoded"
+                 },
+                 body: "email=" + email
+             })
+             .then(response => response.json())
+             .then(data => {
+                 if (data.valid) {
+                     document.getElementById("validation-result").innerText = "Valid email address.";
+                 } else {
+                     document.getElementById("validation-result").innerText = "Invalid email address.";
+                }
+             });
+             }
+         </script>
+    </div>
+</body>
+</html>

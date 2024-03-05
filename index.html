@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Matcher</title>
+</head>
+<style>
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+    h1 {
+        text-align: center;
+    }
+    form {
+        margin-bottom: 20px;
+    }
+    input[type="text"] {
+            height: 80px;/* Set the desired height here */
+            vertical-align: initial;
+        }
+</style>
+<body>
+    <div class="container">
+         <h1>Regex Matcher</h1>
+         <form action="/" method="POST">
+             <label for="regex_pattern">Regex Pattern:</label><br>
+             <input type="field" id="regex_pattern" name="regex_pattern" required size = "80"><br><br>
+             <label for="test_string">Test String:</label><br>
+             <input type="text" id="test_string" name="test_string" required size="80"><br><br>
+             <button type="submit">Match</button>
+         </form>
+
+         <h2>Matches:</h2>
+         {% if matches %}
+         <ul>
+         {% for match in matches %}
+             <li>{{ match }}</li>
+         {% endfor %}
+         </ul>
+         {% else %}
+             <p>No matches found.</p>
+         {% endif %}
+
+         <form action="/email" method="POST">
+             <p>To check valid email click below</p>
+             <button type="submit">Check</button>
+         </form>
+    </div>
+</body>
+</html>
