@@ -9,4 +9,6 @@ To run the app we have to first activate the vritual environment created by givi
 then click on the running http server 
 
 To Check AWS deployment copy and click the below url 
-URL : http://16.171.149.170:5000/
+URL : http://51.20.6.83:5000/
+
+
